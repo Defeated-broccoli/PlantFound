@@ -8,6 +8,7 @@ import { RootStackParamList } from './Navigation/NavProps'
 import HomeScreen from './Screens/HomeScreen'
 import PlantScreen from './Screens/PlantScreen'
 import { StatusBar } from 'react-native'
+import CameraScreen from './Screens/CameraScreen'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -27,6 +28,7 @@ function App() {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="PlantScreen" component={PlantScreen} />
+          <Stack.Screen name="CameraScreen" component={CameraScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

@@ -1,17 +1,34 @@
-import { Text, View, ViewStyle } from 'react-native'
+import { useFonts } from 'expo-font'
+import { Image, Text, View, ViewStyle } from 'react-native'
 
 interface LogoProps {
-  style: ViewStyle
+  style?: ViewStyle
+  title: string
 }
 
-const Logo = ({ style }: LogoProps) => {
+const Logo = ({ style, title }: LogoProps) => {
+  const [fontsLoaded, fontError] = useFonts({
+    treeFont: require('../assets/fonts/treeFont.ttf'),
+  })
+
+  if (!fontsLoaded) return null
+
   return (
     <View
       style={{
         ...style,
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <Text>Logo</Text>
+      <Image
+        style={{
+          height: 40,
+          width: 250,
+          resizeMode: 'contain',
+        }}
+        source={require('../assets/img/logo.png')}
+      />
     </View>
   )
 }

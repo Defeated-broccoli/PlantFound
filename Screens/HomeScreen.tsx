@@ -7,8 +7,11 @@ export default function HomeScreen({ navigation, route }) {
   const [filterText, setFilterText] = useState<string>('')
 
   return (
-    <SafeAreaView>
-      <SearchBar onTextInput={(text) => setFilterText(text)} />
+    <SafeAreaView style={{ flex: 1 }}>
+      <SearchBar
+        onTextInput={(text) => setFilterText(text)}
+        navigation={navigation}
+      />
       <PlantList filterText={filterText} navigation={navigation} />
     </SafeAreaView>
   )

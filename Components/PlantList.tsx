@@ -22,21 +22,39 @@ const PlantList = ({ filterText, navigation }: PlantListProps) => {
 
   useEffect(() => {
     setFilteredPlants(
-      plants.current.filter((p) =>
-        p.species.name.toUpperCase().includes(filterText.toUpperCase())
+      plants.current.filter(
+        (p) =>
+          p.species.name.toUpperCase().includes(filterText.toUpperCase()) ||
+          p.name.toUpperCase().includes(filterText.toUpperCase()) ||
+          p.room.name.toUpperCase().includes(filterText.toUpperCase()) ||
+          p.id.toString() == filterText
       )
     )
   }, [plants, filterText])
 
   return (
-    <View>
+    <View
+      style={{
+        flexDirection: 'column',
+        alignItems: 'center',
+        flex: 1,
+      }}
+    >
       <FlatList
+        scrollEnabled={true}
         data={filteredPlants}
         renderItem={({ item }) => (
           <PlantItem plant={item} navigation={navigation} />
         )}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
+        contentContainerStyle={{
+          gap: 10,
+          paddingHorizontal: 16,
+          paddingVertical: 10,
+        }}
+        columnWrapperStyle={{ gap: 10 }}
+        style={{ flex: 1, width: '100%' }}
       />
     </View>
   )

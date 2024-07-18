@@ -6,6 +6,7 @@ type RootStackParamList = {
   PlantScreen: {
     plantId: number
   }
+  CameraScreen: undefined
 }
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<
@@ -20,10 +21,18 @@ type PlantScreenNavigationProp = NativeStackNavigationProp<
 >
 type PlantScreenRouteProp = RouteProp<RootStackParamList, 'HomeScreen'>
 
+type CameraScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'CameraScreen'
+>
+type CameraScreenRouteProp = RouteProp<RootStackParamList, 'HomeScreen'>
+
 export {
   RootStackParamList,
   HomeScreenNavigationProp,
   HomeScreenRouteProp,
   PlantScreenNavigationProp,
   PlantScreenRouteProp,
+  CameraScreenNavigationProp,
+  CameraScreenRouteProp,
 }
