@@ -1,5 +1,20 @@
 const mainStyle = {
-  backgroundColor: '#61b436',
+  backgroundColor: '#49A8A4',
 }
 
-export default mainStyle
+const backgroundStyle = {
+  backgroundColor: '#FCFCFC',
+}
+
+const basicShadow = {
+  shadowColor: '#000',
+  shadowOffset: {
+    width: 20,
+    height: 20,
+  },
+  shadowOpacity: 0.5,
+  shadowRadius: 10,
+  elevation: 3,
+}
+
+export { mainStyle, backgroundStyle, basicShadow }

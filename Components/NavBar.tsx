@@ -1,11 +1,11 @@
-import { TextInput, View } from 'react-native'
-import mainStyle from '../Constants/const'
-import NavButton from './NavButton'
+import { View } from 'react-native'
+import { mainStyle } from '../Constants/const'
 import { RootStackParamList } from '../Navigation/NavProps'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import Logo from './Logo'
 import Plant from '../models/Plant'
 import SearchButton from './SearchButton'
+import PlantName from './PlantName'
 
 interface NavBarProps {
   navigation: NativeStackNavigationProp<RootStackParamList>
@@ -28,7 +28,7 @@ const NavBar = ({ navigation, plant }: NavBarProps) => {
           navigation.goBack()
         }}
       />
-      <Logo title={plant.name} style={{ flex: 1 }} />
+      <PlantName title={plant.name} style={{ flex: 1 }} />
       <SearchButton
         source={require('../assets/img/qr-button.png')}
         onPress={() => {

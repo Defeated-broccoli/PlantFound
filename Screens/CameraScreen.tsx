@@ -9,7 +9,7 @@ const CameraScreen = ({ navigation, route }) => {
   const [permission, requestPermission] = useCameraPermissions()
 
   const handleBarCodeScan = (result: BarcodeScanningResult) => {
-    const regex = /^https:\/\/(\d+)\.com$/
+    const regex = /\((\d+)\)/
     const match = result.data.match(regex)
 
     if (match) {

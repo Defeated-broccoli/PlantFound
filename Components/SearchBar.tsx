@@ -1,13 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import {
-  View,
-  Text,
-  Pressable,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native'
+import { View, TextInput } from 'react-native'
 import Logo from './Logo'
-import mainStyle from '../Constants/const'
+import { mainStyle } from '../Constants/const'
 import SearchButton from './SearchButton'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../Navigation/NavProps'
@@ -19,9 +13,11 @@ interface SearchBarProps {
 
 const SearchBar = ({ onTextInput, navigation }: SearchBarProps) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
-  const textInputRef = useRef(null)
+  const textInputRef = useRef<TextInput>(null)
 
   const handleSearchToggle = () => {
+    if (isExpanded) onTextInput('')
+
     setIsExpanded((prev) => !prev)
   }
 
@@ -58,10 +54,9 @@ const SearchBar = ({ onTextInput, navigation }: SearchBarProps) => {
               flex: 1,
               justifyContent: 'center',
               textAlign: 'center',
-              fontSize: 32,
+              fontSize: 26,
               fontWeight: 'bold',
               color: 'white',
-              opacity: 0.5,
             }}
             placeholderTextColor="white"
             cursorColor="white"

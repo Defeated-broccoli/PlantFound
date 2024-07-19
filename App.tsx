@@ -9,6 +9,9 @@ import HomeScreen from './Screens/HomeScreen'
 import PlantScreen from './Screens/PlantScreen'
 import { StatusBar } from 'react-native'
 import CameraScreen from './Screens/CameraScreen'
+import { useFonts } from 'expo-font'
+import MapScreen from './Screens/MapScreen'
+import { RootSiblingParent } from 'react-native-root-siblings'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -21,17 +24,25 @@ const theme = {
 }
 
 function App() {
+  const [fontsLoaded, fontError] = useFonts({
+    commingSoon: require('./assets/fonts/commingSoon.ttf'),
+    monicaGarden: require('./assets/fonts/monicaGarden.ttf'),
+  })
+
+  if (!fontsLoaded) return null
+
   return (
-    <>
+    <RootSiblingParent>
       <StatusBar backgroundColor={'black'} />
       <NavigationContainer theme={theme}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="PlantScreen" component={PlantScreen} />
           <Stack.Screen name="CameraScreen" component={CameraScreen} />
+          <Stack.Screen name="MapScreen" component={MapScreen} />
         </Stack.Navigator>
       </NavigationContainer>
-    </>
+    </RootSiblingParent>
   )
 }
 

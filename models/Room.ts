@@ -1,4 +1,4 @@
-interface Room {
+export default interface Room {
   id: number
   name: string
   color: string

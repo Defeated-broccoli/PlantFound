@@ -1,5 +1,4 @@
-import { useFonts } from 'expo-font'
-import { Image, Text, View, ViewStyle } from 'react-native'
+import { Image, View, ViewStyle, Text } from 'react-native'
 
 interface LogoProps {
   style?: ViewStyle
@@ -7,28 +6,33 @@ interface LogoProps {
 }
 
 const Logo = ({ style, title }: LogoProps) => {
-  const [fontsLoaded, fontError] = useFonts({
-    treeFont: require('../assets/fonts/treeFont.ttf'),
-  })
-
-  if (!fontsLoaded) return null
-
   return (
     <View
       style={{
         ...style,
         justifyContent: 'center',
         alignItems: 'center',
+        flexDirection: 'row',
       }}
     >
       <Image
         style={{
           height: 40,
-          width: 250,
+          width: 40,
           resizeMode: 'contain',
         }}
-        source={require('../assets/img/logo.png')}
+        source={require('../assets/img/plant-logo.png')}
       />
+      <Text
+        style={{
+          fontFamily: 'monicaGarden',
+          color: 'white',
+          fontSize: 24,
+          marginTop: 5,
+        }}
+      >
+        PlantFound
+      </Text>
     </View>
   )
 }
